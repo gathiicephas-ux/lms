@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Waweru — Building East Africa's Insurance Future</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #003087;
+            --gold: #FFB81C;
+            --dark-text: #1A1A1A;
+            --light-grey: #F5F5F5;
+            --white: #FFFFFF;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: var(--navy);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-brand {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: #FFD54F;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 1rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--navy);
+            color: var(--white);
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            min-height: 600px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .hero-content .subheading {
+            font-size: 1.1rem;
+            color: #E0E0E0;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .badges {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .badge {
+            background: rgba(255, 184, 28, 0.15);
+            border-left: 3px solid var(--gold);
+            padding: 0.8rem 1rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .btn-primary:hover {
+            background: #FFD54F;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--navy);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(255, 184, 28, 0.2);
+        }
+
+        .hero-image-upload {
+            width: 100%;
+            max-width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px dashed var(--gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .hero-image-upload:hover {
+            background: rgba(255, 184, 28, 0.1);
+        }
+
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 3rem 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* About Section */
+        .about {
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .about-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-image img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 8px;
+        }
+
+        .about-image-upload {
+            width: 100%;
+            max-width: 350px;
+            height: 350px;
+            background: var(--light-grey);
+            border: 2px dashed var(--gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .about-image-upload:hover {
+            background: #EFEFEF;
+        }
+
+        .about-content h2 {
+            font-size: 2.2rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .about-content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--dark-text);
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: var(--navy);
+            color: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--gold);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: #E0E0E0;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .about {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Timeline Section */
+        .timeline {
+            background: var(--navy);
+            color: var(--white);
+            padding: 4rem 2rem;
+        }
+
+        .timeline h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .timeline-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            padding: 0 2rem;
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            padding-left: 60px;
+            position: relative;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+        .timeline-item:nth-child(6) { animation-delay: 0.6s; }
+        .timeline-item:nth-child(7) { animation-delay: 0.7s; }
+        .timeline-item:nth-child(8) { animation-delay: 0.8s; }
+
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--gold);
+            border-radius: 50%;
+            border: 3px solid var(--navy);
+            box-shadow: 0 0 0 4px rgba(255, 184, 28, 0.3);
+        }
+
+        .timeline-item.highlight .timeline-dot {
+            width: 28px;
+            height: 28px;
+            left: -4px;
+            box-shadow: 0 0 0 6px rgba(255, 184, 28, 0.2);
+        }
+
+        .timeline-item.highlight .timeline-date {
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-badge {
+            display: inline-block;
+            background: rgba(255, 184, 28, 0.2);
+            color: var(--gold);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        /* Awards Section */
+        .awards {
+            padding: 4rem 2rem;
+            background: var(--white);
+        }
+
+        .awards h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            color: var(--navy);
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+
+        .award-card {
+            background: var(--light-grey);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            border-top: 4px solid var(--gold);
+            transition: transform 0.3s, box-shadow 0.3s;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .award-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 48, 135, 0.1);
+        }
+
+        .award-card:nth-child(1) { animation-delay: 0.1s; }
+        .award-card:nth-child(2) { animation-delay: 0.2s; }
+        .award-card:nth-child(3) { animation-delay: 0.3s; }
+        .award-card:nth-child(4) { animation-delay: 0.4s; }
+        .award-card:nth-child(5) { animation-delay: 0.5s; }
+
+        .award-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .award-card h3 {
+            color: var(--navy);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .award-year {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .awards-quote {
+            background: var(--navy);
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-radius: 8px;
+            margin-top: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .awards-quote p {
+            font-family: 'Georgia', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            line-height: 1.6;
+            color: var(--white);
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--navy);
+            color: var(--white);
+            padding: 4rem 2rem;
+        }
+
+        .services h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: rgba(255, 184, 28, 0.1);
+            border: 1px solid rgba(255, 184, 28, 0.3);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: all 0.3s;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .service-card:hover {
+            background: rgba(255, 184, 28, 0.15);
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .service-card:nth-child(1) { animation-delay: 0.1s; }
+        .service-card:nth-child(2) { animation-delay: 0.2s; }
+        .service-card:nth-child(3) { animation-delay: 0.3s; }
+        .service-card:nth-child(4) { animation-delay: 0.4s; }
+        .service-card:nth-child(5) { animation-delay: 0.5s; }
+        .service-card:nth-child(6) { animation-delay: 0.6s; }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: #E0E0E0;
+            line-height: 1.6;
+        }
+
+        .services-cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .services-cta h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 4rem 2rem;
+            background: var(--white);
+        }
+
+        .gallery h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .gallery-subheading {
+            text-align: center;
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1rem;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 1;
+            background: var(--light-grey);
+            cursor: pointer;
+            border: 2px solid #E8E8E8;
+            transition: all 0.3s;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .gallery-item:hover {
+            border-color: var(--gold);
+            box-shadow: 0 8px 20px rgba(0, 48, 135, 0.15);
+        }
+
+        .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+        .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+        .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+        .gallery-item:nth-child(4) { animation-delay: 0.4s; }
+        .gallery-item:nth-child(5) { animation-delay: 0.5s; }
+        .gallery-item:nth-child(6) { animation-delay: 0.6s; }
+        .gallery-item:nth-child(7) { animation-delay: 0.7s; }
+        .gallery-item:nth-child(8) { animation-delay: 0.8s; }
+        .gallery-item:nth-child(9) { animation-delay: 0.9s; }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-upload {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 0.5rem;
+            color: #999;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--navy);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .contact-subline {
+            font-size: 1.1rem;
+            color: #E0E0E0;
+            margin-bottom: 2rem;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.9rem;
+            border: 2px solid rgba(255, 184, 28, 0.3);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-link:hover {
+            color: var(--gold);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+
+        /* Footer */
+        footer {
+            background: #001F5C;
+            color: #B0B0B0;
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        footer a {
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            footer {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .footer-links {
+                order: 2;
+            }
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--navy);
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        /* Hidden file input */
+        input[type="file"] {
+            display: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+                min-height: auto;
+            }
+
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .about {
+                padding: 2rem 1rem;
+            }
+
+            .about-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                padding: 2rem 1rem;
+            }
+
+            .awards {
+                padding: 2rem 1rem;
+            }
+
+            .awards h2,
+            .services h2,
+            .timeline h2 {
+                font-size: 1.8rem;
+            }
+
+            .services {
+                padding: 2rem 1rem;
+            }
+
+            .gallery {
+                padding: 2rem 1rem;
+            }
+
+            .contact {
+                padding: 2rem 1rem;
+            }
+
+            .contact h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-brand">James Waweru</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#career">Career</a></li>
+            <li><a href="#awards">Awards</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact" class="nav-cta">Connect</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Building East Africa's Insurance Future</h1>
+            <p class="subheading">Group Head of Direct Sales Force | APA Apollo Group | Kenya · Uganda · Tanzania</p>
+            <div class="badges">
+                <div class="badge">🏆 LIMRA AIAM — First to Qualify in Africa</div>
+                <div class="badge">⭐ 2× AKI Company of the Year</div>
+            </div>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn btn-primary">Connect with James</a>
+                <a href="#about" class="btn btn-secondary">View My Story</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="hero-image-upload" id="heroImageUpload">
+                <div style="text-align: center; color: rgba(255, 255, 255, 0.6);">
+                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">📸</div>
+                    <div>Click to upload hero image</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-image">
+            <div class="about-image-upload" id="aboutImageUpload">
+                <div class="gallery-upload">
+                    <div style="font-size: 3rem;">📸</div>
+                    <div>Click to upload</div>
+                </div>
+            </div>
+        </div>
+        <div class="about-content">
+            <h2>23 Years of Insurance Leadership</h2>
+            <p>I have spent 23 years doing one thing: building insurance distribution systems that actually work.</p>
+            <p>That journey started in February 2002 as a Sales Executive at Mediplus Limited — learning the fundamentals of insurance sales from the ground up. It has taken me through every level of APA Insurance's sales leadership ladder — from Unit Manager to Sales Manager, Regional Manager, Head of Direct Sales Force, and now Group Head of Direct Sales Force at APA Apollo Group, leading operations across Kenya, Uganda and Tanzania.</p>
+            <p>Along the way, I became the first person in Africa to qualify as a LIMRA Associate Insurance Agency Manager (AIAM) — a global professional designation that reflects a commitment to the science and practice of building high-performing agency forces.</p>
+            <p>East Africa's insurance penetration sits below 3%. To me, that is not a problem to manage — it is the defining commercial and social opportunity of this generation. Every new policy is a family protected, a business secured, a future guaranteed.</p>
+            <p>I am building the sales force that will close that gap.</p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">23</div>
+                    <div class="stat-label">Years in Insurance</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Countries Led</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2×</div>
+                    <div class="stat-label">AKI Company of the Year</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">#1</div>
+                    <div class="stat-label">First LIMRA AIAM in Africa</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Timeline -->
+    <section class="timeline" id="career">
+        <h2>Career Timeline</h2>
+        <div class="timeline-container">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Feb 2002</div>
+                <div class="timeline-title">Sales Executive, Mediplus Limited</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Oct 2004</div>
+                <div class="timeline-title">Business Consultant, Resolution Health</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Aug 2008</div>
+                <div class="timeline-title">Unit Manager, APA Insurance</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Feb 2012</div>
+                <div class="timeline-title">Sales Manager (Nairobi), APA Insurance</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Apr 2015</div>
+                <div class="timeline-title">Regional Manager (Central Region), APA Insurance</div>
+            </div>
+            <div class="timeline-item highlight">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">May 2016</div>
+                <div class="timeline-title">LIMRA AIAM Qualified <span class="timeline-badge">🌟 First in Africa</span></div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Jun 2016</div>
+                <div class="timeline-title">Head of Direct Sales Force, APA Insurance</div>
+            </div>
+            <div class="timeline-item highlight">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">May 2025</div>
+                <div class="timeline-title">Group Head of Direct Sales Force, APA Apollo Group <span class="timeline-badge">🌟 Current</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="awards" id="awards">
+        <h2>Awards & Recognition</h2>
+        <div class="awards-grid">
+            <div class="award-card">
+                <div class="award-icon">🏆</div>
+                <h3>AKI Company of the Year</h3>
+                <div class="award-year">General Insurance · 2023</div>
+            </div>
+            <div class="award-card">
+                <div class="award-icon">🏆</div>
+                <h3>AKI Company of the Year</h3>
+                <div class="award-year">General Insurance · 2024</div>
+            </div>
+            <div class="award-card">
+                <div class="award-icon">📈</div>
+                <h3>Highest Growth in Life Policies Sold</h3>
+                <div class="award-year">2025</div>
+            </div>
+            <div class="award-card">
+                <div class="award-icon">🥉</div>
+                <h3>AKI Company of the Year</h3>
+                <div class="award-year">2nd Runners-Up · 2025</div>
+            </div>
+            <div class="award-card">
+                <div class="award-icon">💡</div>
+                <h3>AKI Innovation Award</h3>
+                <div class="award-year">2nd Runners-Up · 2025</div>
+            </div>
+        </div>
+        <div class="awards-quote">
+            <p>"Two years in a row. What it took for APA Insurance to win Kenya's top insurance award — and what our sales team did differently."</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2>Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">👥</div>
+                <h3>Sales Force Development</h3>
+                <p>Designing and building high-performance direct sales forces from recruitment to results.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎓</div>
+                <h3>Sales Training & Coaching</h3>
+                <p>Practical, field-tested training for agents, Unit Managers and Regional Managers.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🗺️</div>
+                <h3>Distribution Strategy</h3>
+                <p>Helping insurers identify growth opportunities and expand across East African markets.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤝</div>
+                <h3>Leadership Mentoring</h3>
+                <p>One-on-one mentoring for sales professionals stepping into management roles.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔍</div>
+                <h3>Insurance Recruitment</h3>
+                <p>Identifying and onboarding quality agents and managers who perform and stay.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎤</div>
+                <h3>Keynote Speaking</h3>
+                <p>Speaking on insurance distribution, sales leadership and East Africa's market opportunity.</p>
+            </div>
+        </div>
+        <div class="services-cta">
+            <h3>Interested in working together?</h3>
+            <a href="#contact" class="btn btn-primary">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <h2>Moments from the Field</h2>
+        <p class="gallery-subheading">Building teams and leading from the front across East Africa.</p>
+        <div class="gallery-grid">
+            <div class="gallery-item" id="galleryItem1">
+                <div class="gallery-upload" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <div style="font-size: 2rem;">📸</div>
+                    <div style="margin-top: 0.5rem;">Click to upload</div>
+                </div>
+            </div>
+            <div class="gallery-item" id="galleryItem2">
+                <div class="gallery-upload" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <div style="font-size: 2rem;">📸</div>
+                    <div style="margin-top: 0.5rem;">Click to upload</div>
+                </div>
+            </div>
+            <div class="gallery-item" id="galleryItem3">
+                <div class="gallery-upload" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <div style="font-size: 2rem;">📸</div>
+                    <div style="margin-top: 0.5rem;">Click to upload</div>
+                </div>
+            </div>
+            <div class="gallery-item" id="galleryItem4">
+                <div class="gallery-upload" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <div style="font-size: 2rem;">📸</div>
+                    <div style="margin-top: 0.5rem;">Click to upload</div>
+                </div>
+            </div>
+            <div class="gallery-item" id="galleryItem5">
+                <div class="gallery-upload" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <div style="font-size: 2rem;">📸</div>
+                    <div style="margin-top: 0.5rem;">Click to upload</div>
+                </div>
+            </div>
+            <div class="gallery-item" id="galleryItem6">
+                <div class="gallery-upload" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <div style="font-size: 2rem;">📸</div>
+                    <div style="margin-top: 0.5rem;">Click to upload</div>
+                </div>
+            </div>
+            <div class="gallery-item" id="galleryItem7">
+                <div class="gallery-upload" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <div style="font-size: 2rem;">📸</div>
+                    <div style="margin-top: 0.5rem;">Click to upload</div>
+                </div>
+            </div>
+            <div class="gallery-item" id="galleryItem8">
+                <div class="gallery-upload" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <div style="font-size: 2rem;">📸</div>
+                    <div style="margin-top: 0.5rem;">Click to upload</div>
+                </div>
+            </div>
+            <div class="gallery-item" id="galleryItem9">
+                <div class="gallery-upload" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                    <div style="font-size: 2rem;">📸</div>
+                    <div style="margin-top: 0.5rem;">Click to upload</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Let's Connect</h2>
+        <p class="contact-subline">Whether you are an insurer, a sales leader, an aspiring agent, or a partner in East Africa's insurance story — reach out.</p>
+
+        <form class="contact-form" id="contactForm">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+
+        <div class="contact-links">
+            <a href="https://www.linkedin.com/in/jameswaweru/" class="contact-link" target="_blank">
+                <div class="contact-icon">💼</div>
+                <div>LinkedIn</div>
+            </a>
+            <a href="mailto:james@apaapollo.com" class="contact-link">
+                <div class="contact-icon">✉️</div>
+                <div>Email</div>
+            </a>
+            <a href="#" class="contact-link">
+                <div class="contact-icon">📍</div>
+                <div>Nairobi, Kenya</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div>James Waweru — APA Apollo Group</div>
+        <div class="footer-links">
+            <a href="#home">Home</a> |
+            <a href="#about">About</a> |
+            <a href="#career">Career</a> |
+            <a href="#awards">Awards</a> |
+            <a href="#services">Services</a> |
+            <a href="#contact">Contact</a>
+        </div>
+        <div>Building East Africa's Insurance Future</div>
+    </footer>
+
+    <!-- Hidden File Inputs -->
+    <input type="file" id="heroImageInput" accept="image/*">
+    <input type="file" id="aboutImageInput" accept="image/*">
+    <input type="file" id="galleryInput1" accept="image/*" data-gallery="1">
+    <input type="file" id="galleryInput2" accept="image/*" data-gallery="2">
+    <input type="file" id="galleryInput3" accept="image/*" data-gallery="3">
+    <input type="file" id="galleryInput4" accept="image/*" data-gallery="4">
+    <input type="file" id="galleryInput5" accept="image/*" data-gallery="5">
+    <input type="file" id="galleryInput6" accept="image/*" data-gallery="6">
+    <input type="file" id="galleryInput7" accept="image/*" data-gallery="7">
+    <input type="file" id="galleryInput8" accept="image/*" data-gallery="8">
+    <input type="file" id="galleryInput9" accept="image/*" data-gallery="9">
+
+    <script>
+        // Image upload functionality
+        document.getElementById('heroImageUpload').addEventListener('click', () => {
+            document.getElementById('heroImageInput').click();
+        });
+
+        document.getElementById('aboutImageUpload').addEventListener('click', () => {
+            document.getElementById('aboutImageInput').click();
+        });
+
+        // Gallery items
+        for (let i = 1; i <= 9; i++) {
+            document.getElementById(`galleryItem${i}`).addEventListener('click', () => {
+                document.getElementById(`galleryInput${i}`).click();
+            });
+        }
+
+        // Hero image upload handler
+        document.getElementById('heroImageInput').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    const upload = document.getElementById('heroImageUpload');
+                    upload.innerHTML = `<img src="${event.target.result}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">`;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // About image upload handler
+        document.getElementById('aboutImageInput').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    const upload = document.getElementById('aboutImageUpload');
+                    upload.innerHTML = `<img src="${event.target.result}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">`;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Gallery image upload handlers
+        for (let i = 1; i <= 9; i++) {
+            document.getElementById(`galleryInput${i}`).addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                        const item = document.getElementById(`galleryItem${i}`);
+                        item.innerHTML = `<img src="${event.target.result}" style="width: 100%; height: 100%; object-fit: cover;">`;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+
+        // Contact form handler
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Compose mailto link
+            const subject = `New message from ${name}`;
+            const body = `Name: ${name}%0AEmail: ${email}%0A%0AMessage:%0A${message}`;
+            window.location.href = `mailto:james@apaapollo.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+            // Reset form
+            document.getElementById('contactForm').reset();
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for scroll animation (handled by CSS animations)
+    </script>
+</body>
+</html>
