@@ -254,6 +254,50 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 /* FOCUS VISIBLE FOR ACCESSIBILITY */
 :focus-visible{outline:2px solid var(--accent-blue);outline-offset:2px}
 
+/* SCROLL ANIMATIONS */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInLeft{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes fadeInRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes scaleIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+@keyframes bounceIn{0%{opacity:0;transform:scale(0.85)}50%{opacity:1;transform:scale(1.02)}100%{opacity:1;transform:scale(1)}}
+@keyframes floatUp{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes textReveal{0%{clip-path:inset(0 100% 0 0)}100%{clip-path:inset(0 0 0 0)}}
+
+/* ANIMATION CLASSES FOR SCROLL TRIGGER */
+.animate-fade-up{animation:fadeInUp .6s ease-out forwards;opacity:0}
+.animate-fade-left{animation:fadeInLeft .6s ease-out forwards;opacity:0}
+.animate-fade-right{animation:fadeInRight .6s ease-out forwards;opacity:0}
+.animate-scale{animation:scaleIn .5s ease-out forwards;opacity:0}
+.animate-bounce{animation:bounceIn .6s cubic-bezier(.68,.55,.265,1.55) forwards;opacity:0}
+.animate-float{animation:floatUp 3s ease-in-out infinite}
+
+/* STAGGER DELAYS FOR CARD ANIMATIONS */
+.stagger-1{animation-delay:.1s}
+.stagger-2{animation-delay:.2s}
+.stagger-3{animation-delay:.3s}
+.stagger-4{animation-delay:.4s}
+.stagger-5{animation-delay:.5s}
+.stagger-6{animation-delay:.6s}
+
+/* ENHANCED CARD HOVER ANIMATIONS */
+.card-hover{position:relative;overflow:hidden}
+.card-hover::after{content:'';position:absolute;inset:0;background:linear-gradient(45deg,transparent 30%,rgba(255,255,255,.2) 50%,transparent 70%);transform:translateX(-100%);transition:transform var(--transition-base);pointer-events:none}
+.card-hover:hover::after{transform:translateX(100%)}
+
+/* GRADIENT ANIMATION */
+.gradient-animate{background-size:400% 400%;animation:gradientShift 8s ease infinite}
+
+/* TEXT ANIMATIONS */
+.text-gradient{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-light) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* ICON ANIMATION */
+.icon-bounce{animation:floatUp 2s ease-in-out infinite}
+
+/* BUTTON PULSE */
+.pulse-effect::after{content:'';position:absolute;inset:0;background:rgba(255,255,255,.3);border-radius:inherit;animation:pulse-ring 1.5s ease-out infinite}
+@keyframes pulse-ring{0%{transform:scale(1);opacity:1}100%{transform:scale(2);opacity:0}}
+
 /* REDUCED MOTION */
 @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}}
 
@@ -366,35 +410,35 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
     </div>
   </div>
 
-  <div class="sec">
+  <div class="sec" data-animate="true" data-anim-type="fade-up">
     <span class="sl2">How It Works</span>
     <h2 class="st">Simple, Transparent Process</h2>
-    <div class="hiw">
-      <div class="hiwc">
+    <div class="hiw" data-animate="true" data-anim-type="fade-up">
+      <div class="hiwc card-hover" data-stagger="true">
         <div class="hiwn">1</div>
         <div class="hiwi">📋</div>
         <h3>Submit Details</h3>
         <p>Provide vehicle info and upload photos</p>
       </div>
-      <div class="hiwc">
+      <div class="hiwc card-hover" data-stagger="true">
         <div class="hiwn">2</div>
         <div class="hiwi">📸</div>
         <h3>Assessment</h3>
         <p>Our experts review your vehicle</p>
       </div>
-      <div class="hiwc">
+      <div class="hiwc card-hover" data-stagger="true">
         <div class="hiwn">3</div>
         <div class="hiwi">🔍</div>
         <h3>Valuation</h3>
         <p>We provide detailed assessment report</p>
       </div>
-      <div class="hiwc">
+      <div class="hiwc card-hover" data-stagger="true">
         <div class="hiwn">4</div>
         <div class="hiwi">📄</div>
         <h3>Report</h3>
         <p>Receive official certificate</p>
       </div>
-      <div class="hiwc">
+      <div class="hiwc card-hover" data-stagger="true">
         <div class="hiwn">5</div>
         <div class="hiwi">✅</div>
         <h3>Follow-up</h3>
@@ -403,27 +447,27 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
     </div>
   </div>
 
-  <div class="sec">
+  <div class="sec" data-animate="true" data-anim-type="fade-up">
     <span class="sl2">Why Choose Us</span>
     <h2 class="st">Our <em>Core Pillars</em></h2>
-    <div class="pillars">
-      <div class="pc">
-        <div class="pi">🎓</div>
+    <div class="pillars" data-animate="true" data-anim-type="bounce">
+      <div class="pc card-hover" data-stagger="true">
+        <div class="pi icon-bounce">🎓</div>
         <h3>Competence</h3>
         <p>Certified assessors with years of industry expertise</p>
       </div>
-      <div class="pc">
-        <div class="pi">⭐</div>
+      <div class="pc card-hover" data-stagger="true">
+        <div class="pi icon-bounce">⭐</div>
         <h3>Professionalism</h3>
         <p>ISO standards & ethical practices in everything</p>
       </div>
-      <div class="pc">
-        <div class="pi">🔄</div>
+      <div class="pc card-hover" data-stagger="true">
+        <div class="pi icon-bounce">🔄</div>
         <h3>Flexibility</h3>
         <p>Tailored solutions for your unique needs</p>
       </div>
-      <div class="pc">
-        <div class="pi">⏱️</div>
+      <div class="pc card-hover" data-stagger="true">
+        <div class="pi icon-bounce">⏱️</div>
         <h3>On-Time Delivery</h3>
         <p>Fast turnaround without compromising quality</p>
       </div>
@@ -515,11 +559,11 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
     </div>
   </div>
 
-  <div class="sec">
+  <div class="sec" data-animate="true" data-anim-type="fade-up">
     <span class="sl2">Client Testimonials</span>
     <h2 class="st">What Our Clients Say</h2>
-    <div class="testi">
-      <div class="tc">
+    <div class="testi" data-animate="true" data-anim-type="scale">
+      <div class="tc card-hover" data-stagger="true">
         <div class="tstar">★★★★★</div>
         <div class="tcq">"</div>
         <div class="tct">Excellent service! The team was professional, thorough, and provided a detailed report. Highly recommended for anyone needing a vehicle valuation.</div>
@@ -531,7 +575,7 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
           </div>
         </div>
       </div>
-      <div class="tc">
+      <div class="tc card-hover" data-stagger="true">
         <div class="tstar">★★★★★</div>
         <div class="tcq">"</div>
         <div class="tct">Fast turnaround and very accurate valuation. Saved me thousands when dealing with my insurance claim. Will definitely use again.</div>
@@ -543,7 +587,7 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
           </div>
         </div>
       </div>
-      <div class="tc">
+      <div class="tc card-hover" data-stagger="true">
         <div class="tstar">★★★★★</div>
         <div class="tcq">"</div>
         <div class="tct">Professional team with great attention to detail. The valuation report was comprehensive and helped me negotiate better terms.</div>
@@ -684,7 +728,7 @@ nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-co
 <a href="https://wa.me/254722123456" class="whatsapp" title="Contact on WhatsApp" aria-label="WhatsApp">💬</a>
 
 <script>
-// Custom Cursor
+// ============ CUSTOM CURSOR ============
 const cur = document.getElementById('cur');
 const curR = document.getElementById('curR');
 
@@ -695,7 +739,50 @@ document.addEventListener('mousemove', (e) => {
   curR.style.top = e.clientY - 17 + 'px';
 });
 
-// Page Navigation
+// ============ SCROLL-TRIGGERED ANIMATIONS ============
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Add animation classes based on data attribute
+      const animType = entry.target.dataset.animType || 'fade-up';
+      entry.target.classList.add(`animate-${animType}`);
+
+      // For staggered animations (cards)
+      const children = entry.target.querySelectorAll('[data-stagger]');
+      if (children.length > 0) {
+        children.forEach((child, idx) => {
+          child.classList.add(`animate-${animType}`, `stagger-${(idx % 6) + 1}`);
+        });
+      }
+
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+// Observe all elements with animation attributes
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('[data-animate]').forEach(el => {
+    observer.observe(el);
+  });
+});
+
+// ============ PARALLAX EFFECT ============
+window.addEventListener('scroll', () => {
+  const parallaxElements = document.querySelectorAll('[data-parallax]');
+  parallaxElements.forEach(el => {
+    const scrollPos = window.pageYOffset;
+    const speed = el.dataset.parallax || 0.5;
+    el.style.transform = `translateY(${scrollPos * speed}px)`;
+  });
+});
+
+// ============ PAGE NAVIGATION ============
 function showPage(page) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.getElementById(page).classList.add('active');
@@ -704,7 +791,7 @@ function showPage(page) {
   window.scrollTo(0, 0);
 }
 
-// Form Handling
+// ============ FORM HANDLING ============
 function handleFormSubmit(e) {
   e.preventDefault();
   const btn = e.target.querySelector('.sbtn');
@@ -712,11 +799,19 @@ function handleFormSubmit(e) {
   btn.classList.add('loading');
   btn.textContent = 'Submitting...';
 
+  // Add pulse effect
+  btn.style.position = 'relative';
+  const pulse = document.createElement('span');
+  pulse.className = 'pulse-effect';
+  btn.appendChild(pulse);
+
   setTimeout(() => {
     btn.disabled = false;
     btn.classList.remove('loading');
     btn.textContent = 'Submitted! ✓';
     btn.style.background = 'var(--accent-green)';
+    pulse.remove();
+
     setTimeout(() => {
       btn.textContent = 'Submit for Valuation →';
       btn.style.background = '';
@@ -725,7 +820,7 @@ function handleFormSubmit(e) {
   }, 1500);
 }
 
-// Option Selection
+// ============ OPTION SELECTION ============
 function selectOption(btn) {
   btn.parentElement.querySelectorAll('.ibtn').forEach(b => {
     b.classList.remove('sel');
@@ -735,16 +830,61 @@ function selectOption(btn) {
   btn.setAttribute('aria-pressed', 'true');
 }
 
-// AI Form
+// ============ AI FORM ============
 function startAI() {
   alert('AI Valuation form would initialize here with a modern step-by-step interface.');
 }
 
-// Keyboard Navigation
+// ============ KEYBOARD NAVIGATION ============
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     showPage('home');
   }
+});
+
+// ============ SMOOTH SCROLL ANCHOR LINKS ============
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href !== '#') {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  });
+});
+
+// ============ BUTTON HOVER EFFECTS ============
+document.querySelectorAll('.bp1, .sbtn, .bg1').forEach(btn => {
+  btn.addEventListener('mouseenter', function() {
+    this.style.transform = 'translateY(-2px) scale(1.02)';
+  });
+  btn.addEventListener('mouseleave', function() {
+    if (!this.disabled) {
+      this.style.transform = 'none';
+    }
+  });
+});
+
+// ============ CARD STAGGER INITIALIZATION ============
+document.addEventListener('DOMContentLoaded', () => {
+  // Auto-add stagger to grid cards
+  document.querySelectorAll('.hiw, .testi, .pillars').forEach(grid => {
+    const cards = grid.children;
+    Array.from(cards).forEach((card, idx) => {
+      if (!card.hasAttribute('data-stagger')) {
+        card.setAttribute('data-stagger', 'true');
+      }
+    });
+  });
+});
+
+// ============ SCROLL ANIMATION FOR HERO ============
+document.addEventListener('DOMContentLoaded', () => {
+  const heroElements = document.querySelectorAll('.hbadge, .htag, .hero h1, .hero p, .ha, .hstats');
+  heroElements.forEach(el => el.setAttribute('data-animate', 'true'));
 });
 </script>
 </body>
