@@ -1,0 +1,10 @@
+import { Router } from 'express';
+import { authenticate, adminOnly } from '../middleware/auth';
+const router = Router();
+router.use(authenticate, adminOnly);
+router.get('/dashboard', (req, res) => res.json({ success: true, message: 'Admin dashboard' }));
+router.get('/users', (req, res) => res.json({ success: true, message: 'Get all users' }));
+router.post('/users/:userId/reset', (req, res) => res.json({ success: true }));
+router.get('/analytics', (req, res) => res.json({ success: true, message: 'Get analytics' }));
+router.post('/export/csv', (req, res) => res.json({ success: true }));
+export default router;
