@@ -1,15 +1,9 @@
-import axios, { AxiosInstance, AxiosError } from 'axios';
-import { APIResponse } from '@/types';
+import axios, { AxiosInstance, AxiosError } from 'axios'
 
-/**
- * API Service - Handles all HTTP requests
- */
-
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
 
 class APIService {
-  private api: AxiosInstance;
-  private accessToken: string | null = null;
+  private api: AxiosInstance
 
   constructor() {
     this.api = axios.create({
