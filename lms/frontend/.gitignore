@@ -1,0 +1,18 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+
+# local env files (keep .env.production committed for build-time API URL)
+.env
+.env.local
+.env.*.local
+
+# stray tsc emit (should never happen with noEmit, but guard anyway)
+src/**/*.js
+
+# logs / misc
+npm-debug.log*
+*.local
+.DS_Store
